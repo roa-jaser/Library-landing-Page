@@ -1,0 +1,998 @@
+/* ---- Base Rules ---- */
+body {
+    background: rgb(136,203,171);
+    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+    margin: 0;
+    font-family: 'Merriweather', serif;
+    color: #fff;
+}
+
+/* Typeography General */
+h1 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 3em;
+    margin: 2em 1rem;
+}
+
+@media only screen and (min-width: 35em){
+    h1 {
+        font-size: 5rem;
+        margin: 2em 4rem 1em;
+    }
+}
+
+h2 {
+    border-bottom: 1px solid #cc1;
+    font-family: 'Oxygen', Sans-Serif;
+    font-size: 3em;
+    color: #fff;
+}
+
+p {
+    line-height: 1.6em;
+    color: #eee;
+}
+
+/* ---- Layout Rules ---- */
+main {
+    margin: 10vh 1em 10vh;
+}
+
+.main-hero {
+    min-height: 40vh;
+    padding-top: 3em;
+}
+
+section {
+    position: relative;
+    min-height: 80vh;
+}
+
+/* ---- Module Rules ---- */
+
+/* Navigation Styles */
+.navbar__menu ul {
+    padding-left: 0;
+    margin: 0;
+    text-align: right;
+}
+
+.navbar__menu li {
+    display: inline-block;
+}
+
+.navbar__menu .menu__link {
+    display: block;
+    padding: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar__menu .menu__link:hover {
+    background: #333;
+    color: #fff;
+    transition: ease 0.3s all;
+}
+
+/* Header Styles */
+.page__header {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+/* Footer Styles */
+.page__footer {
+    background: #000;
+    padding: 3em;
+    color: #fff;
+}
+
+.page__footer p{
+    color: #fff;
+}
+
+/* ---- Theme Rules ---- */
+
+/* Landing Container Styles */
+.landing__container {
+    padding: 1em;
+    text-align: left;
+}
+
+@media only screen and (min-width: 35em){
+    .landing__container {
+        max-width: 50em;
+        padding: 4em;
+    }
+}
+
+section:nth-of-type(even) .landing__container {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right; 
+}
+
+/* Background Circles */
+section:nth-of-type(odd) .landing__container::before {
+    content: '';
+    background: rgba(255, 255, 255, 0.187);
+    position: absolute;
+    z-index: -5;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(even) .landing__container::before {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n) .landing__container::after {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    position: absolute;
+    right: 20vw;
+    bottom: -5em;
+    z-index: -5;
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+/* Section Active Styles */
+section.your-active-class {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+section.your-active-class .landing__container::before {
+    opacity: 1;
+    animation: rotate 4s linear 0s infinite forwards;
+}
+
+section.your-active-class .landing__container::after {
+    opacity: 1;
+    animation: rotate 5s linear 0s infinite forwards reverse;
+}
+
+/* Section Active Styles Keyframe Animations */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg)
+            translate(-1em)
+            rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg)
+            translate(-1em) 
+            rotate(-360deg);
+    }
+}
+
+/* Navbar styles */
+.navbar__menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar__menu li {
+    margin: 0 10px;
+}
+
+.navbar__menu .menu__link {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar__menu .menu__link:hover,
+.navbar__menu .menu__link.active-link {
+    background: #ffcc00;
+    color: black;
+    border-radius: 5px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffcc00;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    display: none;
+}
+
+.back-to-top:hover {
+    background: #ff9900;
+}
+
+/* About the Library Section */
+.about-library-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.about-library-image {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.additional-info {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    background: #ffcc00;
+    color: black;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: #ff9900;
+    color: white;
+}
+
+ 
+.main__hero {
+    position: relative;
+    text-align: center;
+    padding: 5em 1rem;
+    color: white;
+  }
+  
+  .main__hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .imgc {
+    max-width: 100%;
+    height: auto;
+    width: 50%;  
+    margin-top: 2rem;
+  }
+  
+/* @media only screen and (min-width: 768px) {
+    .imgc {
+      width: 40%;
+    }
+  } */
+
+
+
+   
+#section1 {
+    
+    padding: 3em 1rem;
+     
+  }
+  
+  .about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .about-text {
+    max-width: 50%;
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* تنسيق الإحصائيات */
+  .stats {
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+  
+  .stat-item {
+    font-size: 1.2em;
+  }
+  
+  .stat-number {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+ 
+  .testimonials {
+    margin-top: 3em;
+    background-color: #faf8ee;
+    color: #000;
+    padding: 2em 1rem;
+    border-radius: 8px;
+  }
+  
+  .testimonial-item {
+    font-style: italic;
+    margin-bottom: 1.5em;
+    color: #000;
+  }
+  
+  .testimonial-item p {
+  
+    color: #000;
+  }
+  
+  .testimonial-item strong {
+    display: block;
+    text-align: right;
+    margin-top: 0.5em;
+    color: #000;
+  }
+  
+  .btn-join {
+    display: inline-block;
+    background-color: #007bff;
+    color: #000;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1em;
+  }
+  
+  .btn-join:hover {
+    background-color: #0056b3;
+  }
+  
+
+
+  /*  Our Book Collections */
+ 
+.book-genres {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
+  }
+  
+  .genre-item {
+    width: 20%;
+    text-align: center;
+  }
+  
+  .genre-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: #ffcc00
+  }
+  
+  .genre-item p {
+    color: #f7f6e9;
+  }
+  
+   .featured-books {
+    color: #ffcc00;
+    display: flex;
+    gap: 2rem;
+    margin-top: 3em;
+  }
+  
+  .book-item {
+    width: 30%;
+    text-align: center;
+    
+  }
+  
+  .book-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .book-item h4 {
+    font-size: 1.3em;
+    margin-top: 1em;
+  }
+  
+  .book-item p {
+    color: #f7f6e9;
+    font-size: 1em;
+  }
+   
+   .book-reviews {
+    margin-top: 3em;
+    background-color: #f1f1f1;
+    padding: 2em;
+    border-radius: 8px;
+    color: black;
+  }
+  
+  .review-item {
+    margin-bottom: 1.5em;
+    color: black;
+  }
+  
+  .review-item h4 {
+    font-size: 1.2em;
+    color: #ffcc00;
+  }
+  
+  .review-item p {
+    font-style: italic;
+    color: black;
+  }
+  
+ 
+  .book-search {
+    margin-top: 2em;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .book-search input {
+    padding: 0.5em;
+    font-size: 1em;
+    border-radius: 5px;
+    width: 200px;
+  }
+  
+  .book-search button {
+    padding: 0.5em 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .book-search button:hover {
+    background-color: #0056b3;
+  }
+  
+ 
+  .view-more {
+    text-align: center;
+    margin-top: 2em;
+  }
+  
+  .btn-view-more {
+    background-color: #007bff;
+    color: white;
+    padding: 1em 2em;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .btn-view-more:hover {
+    background-color: #0056b3;
+  }
+  
+
+ 
+
+/* SECTION 4 */
+.latest-books {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-around;
+    margin-top: 2rem;
+  }
+  
+  .book-item {
+    text-align: center;
+  }
+  
+  .book-item h4 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .book-item p {
+    font-size: 1em;
+    color: #ccc;
+    margin-top: 0.5em;
+  }
+  /* SECTION 5 */
+  /*  What Our Members Say */
+.testimonials {
+    margin-top: 2rem;
+  }
+  
+  .testimonial-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  
+  .testimonial-item p {
+    color: #141414;
+    font-size: 1.2em;
+  }
+  
+
+
+  /*      start  */
+  .navbar__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #333;
+    color: white;
+  }
+  
+  .navbar__menu ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .navbar__menu li {
+    padding: 10px;
+  }
+  
+  .navbar__menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  
+  /*end  */
+  main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .landing__container {
+    max-width: 100%;
+    padding: 15px;
+    text-align: center;
+  }
+  /* start Multi-Device Web Design*/
+  /* @media (max-width: 768px) {
+    .main-hero h1{
+      font-size: 18px;
+    }
+    h1{
+      font-size: 18px;
+    }
+    .stat-number{
+      font-size: 18px;
+    }
+    h3{
+      font-size: 10px;
+    }
+    .stat-label{
+font-size: 10px;
+    }
+h2{
+  font-size: 19px;
+}
+p{
+  font-size: 10px;
+}
+.genre-item h3{
+  font-size: 15px;
+}
+.book-item h4{
+font-size: 15px;
+}
+.book-item p{
+  font-size: 10px;
+  }
+
+  .featured-books h3{
+    font-size: 15px;
+  }
+
+
+  .navbar__menu ul {
+      display: none;
+      flex-direction: column;
+      background: #444;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 200px;
+      text-align: center;
+    }
+  
+    .navbar__menu ul.active {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+
+    a.menu__link {
+      font-size: 10px;
+    }
+  /* }    */
+  
+  
+  
+  /* @media (min-width: 768px) and (max-width: 999px) {
+    a.menu__link{
+      font-size: 12px;
+    } 
+    h1.main-hero{
+      font-size: 22px;
+    }
+  } */
+  
+
+  /* @media (min-width:1000px){
+    a.menu__link{
+      font-size: 15px;
+    } 
+    h1.main-hero{
+      font-size: 25px;
+    }
+  } */
+
+
+
+  
+/* Extra small devices (phones, 600px and down) */
+/* إخفاء قائمة التنقل الأساسية في الشاشات الصغيرة */
+@media only screen and (max-width: 600px) {
+  #navbar__list {
+    display: none; /* إخفاء القائمة بشكل افتراضي */
+    flex-direction: column; /* جعل القائمة عمودية */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    padding: 10px 0;
+  }
+
+  /* إظهار القائمة عند تفعيلها */
+  #navbar__list.active {
+    display: flex;
+  }
+
+  /* تنسيق العناصر داخل القائمة */
+  #navbar__list li {
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  #navbar__list li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+  }
+
+  /* إظهار زر الهمبرغر */
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+
+  span.stat-number{
+    font-size: 20px;
+  }
+  span.stat-label{
+    font-size: 16px;
+  }
+  .imgc{
+    width: 100%;
+  }
+  /* h3.genre-item{
+    font-size:10px;
+  } */
+  h4{
+    font-size:10px;
+  } 
+  .genre-item h3{
+    font-size: 15px;
+    }
+    .book-item h4{
+      font-size: 10px;
+    }
+    .featured-books h3{
+      font-size: 12px;
+    }
+    .landing__container h2{
+      font-size: 30px;
+    }
+    .main__hero h1{
+      font-size: 33px;
+    }
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #navbar__list {
+    display: none; /* إخفاء القائمة بشكل افتراضي */
+    flex-direction: column; /* جعل القائمة عمودية */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #222;
+    padding: 10px 0;
+  }
+
+  /* إظهار القائمة عند تفعيلها */
+  #navbar__list.active {
+    display: flex;
+  }
+
+  /* تنسيق العناصر داخل القائمة */
+  #navbar__list li {
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  #navbar__list li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+  }
+
+  /* إظهار زر الهمبرغر */
+  .hamburger {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+  }
+
+  span.stat-number{
+    font-size: 20px;
+  }
+  span.stat-label{
+    font-size: 16px;
+  }
+  .imgc{
+    width: 100%;
+  }
+  /* h3.genre-item{
+    font-size:10px;
+  } */
+  h4{
+    font-size:10px;
+  } 
+  .genre-item h3{
+    font-size: 15px;
+    }
+    .book-item h4{
+      font-size: 12px;
+    }
+    .featured-books h3{
+      font-size: 14px;
+    }
+    .landing__container h2{
+      font-size: 32px;
+    }
+    .main__hero h1{
+      font-size: 35px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media  (min-width: 768px) and (max-width: 999px) {
+  .main-hero h1{
+    font-size: 18px;
+  }
+  h1{
+    font-size: 18px;
+  }
+  .stat-number{
+    font-size: 18px;
+  }
+  h3{
+    font-size: 17px;
+  }
+  .stat-label{
+font-size: 12px;
+  }
+h2{
+font-size: 20px;
+}
+p{
+font-size: 12px;
+}
+.genre-item h3{
+font-size: 15px;
+}
+.book-item h4{
+font-size: 15px;
+}
+.book-item p{
+font-size: 12px;
+}
+
+.featured-books h3{
+  font-size: 15px;
+}
+
+
+.navbar__menu ul {
+    display: none;
+    flex-direction: column;
+    background: #444;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    text-align: center;
+  }
+
+  .navbar__menu ul.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  a.menu__link {
+    font-size: 16px;
+  }
+
+  #navbar__list {
+    display: none;
+    flex-direction: column;
+    background: #222; /* لون الخلفية عند ظهوره */
+    position: absolute;
+    top: 60px; /* تعديل المسافة أسفل الهيدر */
+    left: 0;
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* عندما يتم تفعيل القائمة */
+  #navbar__list.active {
+    display: flex;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 1000px) {
+  a.menu__link{
+    font-size: 15px;
+  } 
+  h1.main-hero{
+    font-size: 22px;
+  }
+  
+  #navbar__list {
+    display: block;
+    flex-direction: row;  
+}
+  /* إظهار الهمبرغر فقط في الشاشات الصغيرة */
+  .hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+
+  /* تعيين الـ navbar ليظهر بشكل أفقي */
+#navbar__list {
+  display: flex; /* هذا سيجعل العناصر تظهر أفقيًا */
+  justify-content: center; /* لجعل العناصر في المنتصف */
+  align-items: center; /* لضبط العناصر عموديًا في المنتصف */
+  list-style: none; /* إزالة النقاط من القائمة */
+  padding: 0; /* إزالة المسافات */
+  margin: 0; /* إزالة الهامش */
+}
+
+/* تعيين الروابط داخل الـ navbar لتكون بشكل أفقي */
+#navbar__list li {
+  margin: 0 15px; /* مسافة بين العناصر */
+}
+
+#navbar__list a {
+  text-decoration: none; /* إزالة التسطير */
+  color: #000; /* تغيير اللون حسب الرغبة */
+  font-size: 16px; /* تغيير حجم الخط حسب الرغبة */
+  padding: 10px; /* مسافة حول النص */
+}
+
+/* إضافة تأثير عند تمرير الفأرة على الروابط */
+#navbar__list a:hover {
+  background-color: #f0f0f0; /* تغيير الخلفية عند التمرير */
+  border-radius: 5px; /* إضافة حواف دائرية */
+}
+
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  a.menu__link{
+    font-size: 20px;
+  } 
+  h1.main-hero{
+    font-size: 26px;
+  }
+  .hamburger {
+    display: none;
+  }
+}

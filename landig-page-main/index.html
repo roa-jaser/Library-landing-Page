@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Library Landing Page</title>
+  <!-- Load Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">
+  <!-- Load Styles -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <header class="page__header">
+    <nav class="navbar__menu">
+      <ul id="navbar__list"></ul>
+      <div class="hamburger">&#9776;</div>
+
+    </nav>
+  </header>
+
+  <main>
+    <header class="main__hero">
+      <h1>Welcome to Our Modern Library</h1>
+      <img class="imgc" id="imgi" src="asstes/Bibliophile-rafiki.png">
+    </header>
+    
+    <section id="section1" data-nav="About Us">
+      <div class="landing__container">
+        <h2>About the Library</h2>
+        <p>Our library is a hub of knowledge, offering a vast collection of books across various genres. Whether you're looking for academic resources or just a good read, we've got you covered.</p>
+      </div>
+      <div class="about-image">
+        <img src="asstes/Bibliophile-amico.png"  class="imgc" alt="Library Image">
+      </div>
+      
+      <div class="features">
+        <h3>Our Unique Features</h3>
+        <ul>
+          <li><strong>Wide Collection:</strong> Thousands of books in various genres.</li>
+          <li><strong>Quiet Study Areas:</strong> Comfortable spaces to study and read.</li>
+          <li><strong>Online Resources:</strong> Access to eBooks, research papers, and more.</li>
+        </ul>
+      </div>
+
+      <div class="stats">
+        <h3>By the Numbers</h3>
+        <div class="stat-item">
+          <span class="stat-number">5000+</span>
+          <span class="stat-label">Books in Our Collection</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">200+</span>
+          <span class="stat-label">Active Members</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">150+</span>
+          <span class="stat-label">Books Borrowed Monthly</span>
+        </div>
+      </div>
+      <a href="reg.html" class="btn-join">Join Our Library Today!</a>
+
+      <div class="testimonials">
+        <h3>What Our Members Say</h3>
+        <div class="testimonial-item">
+          <p>"This library is my go-to place for studying and reading. The resources are top-notch!"</p>
+          <strong>- Jane Doe</strong>
+        </div>
+        <div class="testimonial-item">
+          <p>"I love the quiet study areas and the variety of books. Highly recommend it!"</p>
+          <strong>- John Smith</strong>
+        </div>
+      </div>
+     
+            
+      
+    </section>
+    
+    <section id="section2" data-nav="Our Collections">
+      <div class="landing__container">
+        <h2>Our Book Collections</h2>
+        <p>Explore our wide selection of books across different genres, including:</p>
+        <div class="book-genres">
+          <div class="genre-item">
+            <h3>Fiction</h3>
+            <p>Novels, short stories, and poetry from world-renowned authors.</p>
+          </div>
+          <div class="genre-item">
+            <h3>Science</h3>
+            <p>Books on physics, biology, chemistry, and more.</p>
+          </div>
+          <div class="genre-item">
+            <h3>History</h3>
+            <p>Discover the past through books on historical events, figures, and civilizations.</p>
+          </div>
+          <div class="genre-item">
+            <h3>Technology</h3>
+            <p>Latest books on programming, AI, and emerging tech.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-books">
+        <h3>Featured Books</h3>
+        <div class="book-item">
+          <img src="asstes/Recipe book-amico.png" alt="Book 1">
+          <h4>Recipe</h4>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero, ipsa!</p>
+        </div>
+        <div class="book-item">
+          <img src="asstes/Recipe book-bro.png" alt="Book 2">
+          <h4>Lets cook</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, voluptatibus!</p>
+        </div>
+        <div class="book-item">
+          <img src="asstes/Recipe book-pana.png" alt="Book 3">
+          <h4>Cooking book</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, porro!</p>
+        </div>
+      </div>
+
+    
+      
+      <div class="book-reviews">
+        <h3>Book Reviews</h3>
+        <div class="review-item">
+          <h4>Recipe</h4>
+          <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit."</p>
+          <strong>-MOMEN</strong>
+        </div>
+        <div class="review-item">
+          <h4>Lets cook</h4>
+          <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit."</p>
+          <strong>-RAGHAD</strong>
+        </div>
+
+        <div class="review-item">
+          <h4>Cooking book</h4>
+          <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit."</p>
+          <strong>-ROA</strong>
+        </div>
+      </div>
+
+    
+
+      
+      <div class="book-search">
+        <input type="text" id="search-books" placeholder="Search books...">
+        <button onclick="searchBooks()">Search</button>
+      </div>
+
+      
+      <div class="view-more">
+        <a href="all-books.html" class="btn-view-more">View All Books</a>
+      </div>
+
+      
+    </section>
+    
+
+    <section id="section3" data-nav="Latest Releases">
+      <div class="landing__container">
+        <h2>Latest Releases</h2>
+        <p>Discover the newest additions to our library!</p>
+        <div class="latest-books">
+          <div class="book-item">
+            <h4>Book 1</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet, quisquam?</p>
+          </div>
+          <div class="book-item">
+            <h4>Book 2</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet, quisquam?</p>
+          </div>
+          <div class="book-item">
+            <h4>Book 3</h4>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet, quisquam?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <section id="section4" data-nav="Services">
+      <div class="landing__container">
+        <h2>Our Services</h2>
+        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ab perferendis esse porro corporis mollitia aut deserunt omnis! Obcaecati aspernatur ut, sapiente similique aut est praesentium quibusdam repudiandae perspiciatis perferendis quas officiis magni facere reprehenderit eaque tempora. Autem neque quas, excepturi perferendis, dolore eum atque suscipit optio placeat veniam blanditiis ut nemo. Unde magnam quod ullam enim impedit quasi et assumenda, facilis eaque eligendi veniam quisquam similique optio, quaerat officiis voluptatum laudantium minus! Nemo unde quidem at quam omnis iste animi dolorum repellendus, magni eligendi voluptatum delectus sapiente quaerat odit! Corporis laboriosam animi dolore reprehenderit facere vitae aliquid excepturi veniam.</P>
+      </div>
+    </section>
+
+    <section id="section5" data-nav="What Our Members Say">
+      <div class="landing__container">
+        <h2>What Our Members Say</h2>
+        <p>Here's what our members have to say about their experience at our library:</p>
+        <div class="testimonials">
+          <div class="testimonial-item">
+            <p>"This library is amazing! I find all the resources I need for my research." - ROA</p>
+          </div>
+          <div class="testimonial-item">
+            <p>"A peaceful place to study, and the book collection is incredible!" - RAGHAD</p>
+          </div>
+          <div class="testimonial-item">
+            <p>"I love the atmosphere here. It's always quiet and perfect for reading." - MOMEN</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+  </main>
+
+  <footer class="page__footer">
+    <p>&copy; 2025 Library. All Rights Reserved.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
